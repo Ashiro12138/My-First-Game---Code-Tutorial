@@ -1,7 +1,42 @@
-if(keyboard_check(ord("W"))){y-=4;}
-if(keyboard_check(ord("S"))){y+=4;}
-if(keyboard_check(ord("A"))){x-=4;}
-if(keyboard_check(ord("D"))){x+=4;}
+if(keyboard_check(ord("W"))){
+	if(place_meeting(x,y-4,objWall)){
+		while(!place_meeting(x,y-1,objWall)){
+			y -= 1;
+		}
+	}else{
+		y -= 4;
+	}
+}
+
+if(keyboard_check(ord("S"))){
+	if(place_meeting(x,y+4,objWall)){
+		while(!place_meeting(x,y+1,objWall)){
+			y += 1;
+		}
+	}else{
+		y += 4;
+	}
+}
+
+if(keyboard_check(ord("A"))){
+	if(place_meeting(x-4,y,objWall)){
+		while(!place_meeting(x-1,y,objWall)){
+			x -= 1;
+		}
+	}else{
+		x -= 4;
+	}
+}
+
+if(keyboard_check(ord("D"))){
+	if(place_meeting(x+4,y,objWall)){
+		while(!place_meeting(x+1,y,objWall)){
+			x += 1;
+		}
+	}else{
+		x += 4;
+	}
+}
 
 image_angle = point_direction(x,y,mouse_x,mouse_y);
 
